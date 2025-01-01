@@ -1,4 +1,7 @@
 package com.cas.backend.model;
 
-public class AddRequest {
+import lombok.Getter;
+
+@Getter
+public record AddRequest(int num1, int num2) {
 }

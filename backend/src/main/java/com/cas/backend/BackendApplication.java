@@ -10,9 +10,6 @@ public class BackendApplication {
     public static void main(String[] args) {
 
         SpringApplication.run(BackendApplication.class, args);
-        Integer input = 3;
-        Num num = new Num(input);
-        System.out.println(num);
     }
 
 }
