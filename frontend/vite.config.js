@@ -1,15 +1,17 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
 
-// https://vite.dev/config/
-const { defineConfig } = require('vite')
-const vue = require('@vitejs/plugin-vue')
-const path = require('path')
-
-module.exports = defineConfig({
+export default defineConfig({ // export default로 변경
   plugins: [vue()],
   build: {
-    outDir: path.resolve(__dirname, '../backend/src/main/resources/static'),
+    outDir: path.resolve(__dirname, 'dist'),
     emptyOutDir: true,
+  },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./src/setupTests.js'],
   },
   resolve: {
     alias: {
@@ -17,6 +19,7 @@ module.exports = defineConfig({
     },
   },
   server: {
+    port: 3000,
     proxy: {
       '/api': {
         target: 'http://localhost:8080',
@@ -24,4 +27,4 @@ module.exports = defineConfig({
       },
     },
   },
-})
+});

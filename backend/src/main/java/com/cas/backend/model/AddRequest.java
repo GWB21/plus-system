@@ -1,7 +1,6 @@
 package com.cas.backend.model;
 
-import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
 
-@Getter
-public record AddRequest(int num1, int num2) {
+public record AddRequest(@NotNull Integer num1,@NotNull Integer num2) {
 }
